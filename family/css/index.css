@@ -1,0 +1,320 @@
+body{
+	display: block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.container{
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1170px;
+}
+a{
+	text-decoration: none;
+}
+.fix:after{
+	content: ' ';
+	display: table;
+	width: 100%;
+	clear: both;
+}
+.poisk{
+	margin-left: 20px;
+	margin-top: 13px;
+	height: 20px;
+}
+#sec{
+	height: 100vh;
+	width: 100%;
+    background: url("../image/Bak3.jpg") center no-repeat;
+    background-size: cover;
+}
+.bit1 a{
+	color: black;
+}
+.bit1{
+  border-left: 1px solid blue;
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: black;
+  background: #CCCCCC;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.bit1:hover {
+  background: #DADADA;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+}
+.menu3{
+	background: #1C2529;
+	font-size: 22px;
+	letter-spacing: 1px;
+	margin-top: 100px;
+	float: left; 
+	height: 140px;
+	width: 20px;
+}
+.menu2{
+	background: #1C2529;
+	font-size: 22px;
+	letter-spacing: 1px;
+	margin-top: 100px;
+	float: left; 
+	height: 260px;
+	width: 20px;
+}
+#back{
+	background: #1C2529;
+}
+.header1{
+	display: flex;
+	margin: 0;
+	padding: 0;
+	color: white;
+	height: 50px;
+	width: 100%;
+}
+.polka p{
+	margin:12px 20px 0 20px;
+}
+.polka a{
+	height: 20px;
+	margin-left: 40px;
+	padding-top: 11px;
+	color: white;
+}
+.polka a:hover{
+	border-bottom: 1px solid blue;
+}
+.polka{
+	padding-top:2px;
+	padding-left: 50px;
+	display: inline-flex;
+}
+.polka h1{
+	font-size: 18px;
+}
+.polka h2{
+	padding-top: 5px;
+	font-size: 13px;
+}
+.polka h3{
+	width: 100px;
+	padding: 2px 10px 0px 20px;
+	font-size: 13px;
+}
+.date_ad{
+	margin-top: 10px;
+	height: 20px;
+	width: 130px;
+}
+#pol{
+	display: flex;
+}
+.sox{
+	margin: 30px 0 0 165px;
+}
+.back2 a{
+	margin:5px 10px 0 0;
+	color: white;
+}
+.piw{
+	margin-left: 20px;
+	margin-top: 13px;
+	color: white;
+}
+.piw:hover{
+	margin-left: 20px;
+	margin-top: 13px;
+	color: black;
+	transition: 0.2s;
+}
+.pol input{
+	height: 15px;
+	width: 60px;
+}
+.left{
+	margin-top: -400px;
+}
+.but_save{
+	margin: -40px 0 0 0;
+	padding-left: 720px;
+}
+.but_save button{
+	margin-left: 10px;
+}
+.palka{
+	margin: 12px 15px 0 12px;
+	width: 5px;
+	height: 25px;
+	border-right:1px solid white;
+}
+.back2{
+	padding-left: 390px;
+	display: flex;
+}
+.link{
+	font-size: 18px;
+	padding-top: 10px;
+	color: white;
+}
+.link:hover{
+	transition: 0.2s;
+	color: blue;
+}
+.ima{
+	padding: 70px 0 0 410px;
+}
+.len{
+	margin: 27px 0 0 10px;
+	height: 20px;
+	font-size: 10px;
+	letter-spacing: 2px;
+}
+.title{
+	color: black;
+	text-align: center;
+}
+.main{
+	padding: 15px 35px 0 0;
+	margin: 0 auto;
+	height: 500px;
+	width: 650px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+}
+.lan{
+	margin-top: 10px;
+	margin-left: 15px;
+	letter-spacing: 2px;
+	font-size: 10px;
+	color: black;
+}
+.doxod h1{
+	padding-left: 175px;
+	font-size: 16px;	
+}
+.doxod input{
+	width: 100px;
+}
+.table{
+	display: flex;
+}
+.fle{
+	display: flex;
+}
+.doxod button{
+	margin-left: 175px;
+}
+.rachod button{
+	margin-left: 0px;
+}
+.rachod{
+	margin-left: 50px;
+}
+.rachod h1{
+	font-size: 16px;	
+}
+.rachod input{
+	width: 100px;
+}
+#sec{
+	height: 600px;
+}
+.exit{
+	margin-right: 100px;
+	margin-top: -300px;
+	float: right;
+}
+.sectw{
+	margin-right: 10px;
+	margin-top:10px;
+	height: 20px;
+	font-size: 10px;
+}
+.bye{
+	margin: 10px 10px 0 10px;
+	height: 20px;
+	font-size: 10px;
+}
+select{
+	margin-top:10px;
+	height: 20px;
+	font-size: 10px;
+}
+.polka3{
+	display: flex;
+}
+.my{
+	margin-right: 10px;s
+}
+.exit button{
+	width: 100px;
+	padding: 5px;
+	font-size: 10px;
+	border: 1px solid black;
+	background: #F6F6f6;
+	border-radius: 3px;
+    cursor: pointer;
+}
+.exit button:hover{
+	background: white;
+}
+.polka2{
+	margin-left: 70px;
+	display: inline-flex;
+}
+footer{
+	margin: 0;
+	padding: 0;
+	height: 200;
+	width: 100%;
+	color: #46545B;
+	background: #1C2529;
+}
+.foter{
+	font-size: 10px;
+	margin-left: 100px;
+}
+.foter h1{
+	font-size: 11px;
+}
+.box{
+	padding-right: 100px;
+	height: 80px;
+	margin-left: 180px;
+	display: inline-flex;
+}
+.laif{
+	margin-left: 280px;
+	display: inline-flex;
+}
+.laif p{
+	font-size: 10px;
+	margin: 0;
+	padding: 0 0 0 8px;
+	color: #46545B;
+}
+.laif a{
+	font-size: 11px;
+	color: #ED5436;
+}
+.laif a:hover{
+	transition: 0.1s;
+	color: white;
+}
+input{
+	margin-top: 10px;
+	width: 100px;
+	display: block;s
+}

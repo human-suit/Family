@@ -1,0 +1,136 @@
+body{
+	display: block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.container{
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1170px;
+}
+#back{
+	width: 100%;
+	height: 100vh;
+    background: url("../image/Bak3.jpg") center no-repeat;
+    background-size: cover;
+}
+.menu_con{
+	font-size: 18px;
+	padding-top: 10px;
+	margin-left: 400px;
+}
+p{
+	color: white;
+	margin-left: 50px;
+	margin-top:0px;
+}
+.menu{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 40px;
+	background: #1C2529;
+}
+a{
+	margin-left: 50px;
+	color: white;
+	text-decoration: none;
+}
+a:hover{
+	cursor: pointer;
+	color: #8E5F67;
+	transition: 0.2s;
+}
+.polka{
+	display: flex;
+}
+.shcaf{
+	display: flex;
+}
+.reg{
+	margin-right: 90px;
+}
+.fon h1{
+	text-align: center;
+	margin-right: 30px;
+}
+.fon2 input{
+	margin-right: 20px;
+}
+.pol progress{
+	margin: 23px 30px 0 0;
+	height: 14px;
+	width: 100px;
+}
+.pol h2{
+	height: 20px;
+	width: 80px;
+	margin-right: 20px; 
+	font-size: 19px;
+}
+.pol h3{
+	margin:16px 30px 0 0px;
+}
+.fon{
+	margin-right: 50px;
+	overflow: auto;
+	display: block;
+	margin-top: 100px;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 500px;
+	width: 550px;
+}
+.fon2 button{
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 20px;
+
+}
+#price{
+	margin-left: 20px;
+}
+.sectw{
+	margin-top: 20px;
+}
+.fon2{
+	display: block;
+	margin: 0 auto;
+	margin-top: 120px;
+	margin-bottom: 20px;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 150px;
+	width: 600px;
+}
+#date_k{
+	margin-top: -5px;
+
+}
+.ind{
+	margin-left: 160px;
+}
+.fon3 button{
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 50px;
+
+}
+.fon3 input{
+	margin-top: 20px;
+}
+.fon3 h2{
+	margin-left: 30px;
+}
+.fon3{
+	display: block;
+	margin: 0 auto;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 180px;
+	width: 190px;
+}
