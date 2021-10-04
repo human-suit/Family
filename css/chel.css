@@ -1,0 +1,149 @@
+body{
+	display: block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.container{
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1170px;
+}
+#back{
+	width: 100%;
+	height: 100vh;
+    background: url("../image/Bak3.jpg") center no-repeat;
+    background-size: cover;
+}
+.menu_con{
+	font-size: 18px;
+	padding-top: 10px;
+	margin-left: 400px;
+}
+a{
+	margin-left: 50px;
+	color: white;
+	text-decoration: none;
+}
+a:hover{
+	cursor: pointer;
+	color: #8E5F67;
+	transition: 0.2s;
+}
+.polka{
+	display: flex;
+}
+.shcaf{
+	display: flex;
+}
+.reg{
+	margin-right: 90px;
+}
+.fon h1{
+	text-align: center;
+	margin-right: 30px;
+}
+.fon2 input{
+	margin-right: 20px;
+}
+.pol progress{
+	margin: 23px 30px 0 0;
+	height: 14px;
+	width: 100px;
+}
+.pol h2{
+	height: 20px;
+	width: 150px;
+	margin-right: 20px; 
+	font-size: 19px;
+}
+.pol h3{
+	margin:16px 30px 0 0px;
+}
+.fon{
+	overflow: auto;
+	display: block;
+	margin: 0 auto;
+	margin-top: 100px;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 500px;
+	width: 550px;
+}
+.fon2 button{
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 50px;
+
+}
+.fon2 input{
+	margin-top: 20px;
+
+}
+.fon2{
+	display: block;
+	margin: 0 auto;
+	margin-top: 120px;
+	margin-bottom: 20px;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 220px;
+	width: 190px;
+}
+.ind{
+	margin-left: 160px;
+}
+.fon3 button{
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 50px;
+
+}
+.fon3 input{
+	margin-top: 20px;
+}
+.fon3 h2{
+	margin-left: 30px;
+}
+.fon3{
+	display: block;
+	margin: 0 auto;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 180px;
+	width: 190px;
+}
+.logo{
+	font-size: 30px;
+}
+.menu{
+	padding-bottom: 8px;
+	border-bottom: 1px solid #E5E5E5;
+	padding-top: 20px;
+	display: flex;
+}
+.menu2{
+	margin-top: 14px;
+	margin-left: 280px;
+	display: flex;
+}
+.menu2 a{
+	color: #848389;
+}
+.item{
+	margin-left: 40px;
+}
+.palka{
+	margin-top: 5px;
+	margin-left: 22px;
+	height: 2px;
+	width: 10px;
+	background:#656565;
+}
+.item2{
+	margin-top: 6px;
+	margin-left: 280px;
+}
