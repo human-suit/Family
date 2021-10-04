@@ -1,0 +1,155 @@
+body{
+
+	display: block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+p{
+  padding: 0;
+  margin: 0;
+}
+h2{
+  padding: 0;
+  margin: 15px 0 0 8px;
+}
+#back{
+	height: 100vh;
+	width: 100%;
+  background: url("../img/Bak2.jpg") center no-repeat;
+  background-size: cover;
+}
+.container{
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1170px;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+.fon a:hover{
+	cursor: pointer;
+}
+.vider{
+  padding-top: 10px;
+  text-align: center;
+  border-right: 1px solid blue;
+  background: #CCCCCC;
+  height: 220px;
+  width: 110px;
+  margin-top: -160px;
+  margin-left: 344px;
+
+}
+.cont{
+	padding: 70px;
+}
+.floating-button {
+  border-left: 1px solid black;
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: black;
+  background: #CCCCCC;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background: #566A83;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+.fon input{
+  padding: 0;
+	margin-left: 14px;
+}
+.up{
+  background-color: rgba(255, 255, 255, 0.75);
+  background-repeat:no-repeat;
+  border-radius: 20px;
+	margin: 0 auto;
+	padding: 15px 15px 15px 45px;
+	box-shadow: 0 0 5px;
+	height: 250px;
+	width: 200px;
+}
+.but{
+  border-left: 1px solid black;
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  margin-top: -100px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: black;
+  background: #CCCCCC;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;	
+}
+.but:hover {
+  background: #566A83;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+.fon{
+	margin-top: 100px;
+}
+.fon button{
+	margin-left: 215px;
+	cursor: pointer;
+}
+.fon input{
+	margin-top: 30px;
+}
+.exit{
+  border-left: 1px solid black;
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: black;
+  background: #CCCCCC;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.exit:hover{
+    background: #566A83;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
+}
+.p{
+	margin-top: -200px;
+	margin-left: 695px;
+}
+.pa{
+	margin-left: 695px;
+}
+#left{
+  margin-top: 3px;
+  margin-left: 715px;
+}
+
