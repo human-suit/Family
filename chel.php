@@ -81,7 +81,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 			<div class="grey">
 				<div class="fon2"> 
 				<div class="p">
-					<form action="php/delete.php" method="post">
+					<form action="delete.php" method="post">
 				<input type="text" name="name_c" id="name_c" placeholder="Наименование">
 				<button class="delete" type="submit">Удалить</button>
 					</form>

@@ -1,14 +1,13 @@
 <?php
+	
+	$mysql = new mysqli('localhost','root','','bd_family');
+
+	$resulta = mysqli_query($mysql, "SELECT * FROM `cheli`");
 
 	$name_c = filter_var(trim($_POST['name_c']),
 	FILTER_SANITIZE_STRING);
-	$price = filter_var(trim($_POST['price']),
-	FILTER_SANITIZE_STRING);
 
-	$mysql = new mysqli('localhost','root','','bd_family');
-
-	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
-if (mb_strlen($name_c) <= 1 || mb_strlen($name_c) > 40 ) {?>
+	if (mb_strlen($name_c) <= 1 || mb_strlen($name_c) > 40 ) {?>
 		<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,8 +38,25 @@ if (mb_strlen($name_c) <= 1 || mb_strlen($name_c) > 40 ) {?>
 <?php
 		exit();
 	}
-	if (mb_strlen($price) <= 1 || mb_strlen($price) > 10 ) {?>
-<!DOCTYPE html>
+
+	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
+
+	$result= mysqli_query($mysql, "SELECT * FROM `cheli`");
+
+while ($login_s = mysqli_fetch_assoc($resulta)) {
+	if($_COOKIE['user'] == $login_s['login']){
+		$User_id=$login_s['id_accounta'];
+	}
+}
+$s=0;
+while ($name_cheli = mysqli_fetch_assoc($result)) {
+	if($name_c == $name_cheli['name_c']){
+		$chel_id=$name_cheli['id_cheli'];
+		$mysql->query("DELETE FROM `cheli` WHERE `cheli`.`id_cheli` = '$chel_id';");
+
+		$mysql->close();
+		?>
+		<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -53,7 +69,7 @@ if (mb_strlen($name_c) <= 1 || mb_strlen($name_c) > 40 ) {?>
 		<div class="container">
 			<div class="menu">
 				<div class="title">
-					Недопустимая длина стоимости!
+					Успешное удаление!
 				</div>
 				<div class="item2">
 					 <a href="chel.php">Выйти</a>
@@ -70,32 +86,25 @@ if (mb_strlen($name_c) <= 1 || mb_strlen($name_c) > 40 ) {?>
 <?php
 exit();
 }
-
-while ($login_s = mysqli_fetch_assoc($resulta)) {
-	if($_COOKIE['user'] == $login_s['login']){
-		$User_id=$login_s['id_accounta'];
+	else{
+		$s++;
 	}
 }
-
-	$mysql->query("INSERT INTO `cheli` (`id_accounta`,`name_c`,`price`) VALUES ('$User_id','$name_c','$price')");
-
-	$mysql->close();
-	?>
-
-<!DOCTYPE html>
+		if($s=1 || $s>1){?>
+		<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/otpravka.css">
-	<title>Цели</title>
+	<title>Цель</title>
 </head>
 <body>
 	<header id="back" class="center">
 		<div class="container">
 			<div class="menu">
 				<div class="title">
-					Вы успешно создали цель
+					Не найдено!
 				</div>
 				<div class="item2">
 					 <a href="chel.php">Выйти</a>
@@ -109,3 +118,9 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	</header>
 </body>
 </html>
+<?php
+		exit();
+	}
+
+
+?>
