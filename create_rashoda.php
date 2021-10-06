@@ -15,15 +15,15 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	}
 }
 
-	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
+	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Расход'");
 
-	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
+	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Расход'");
 
-	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
+	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE'Расход'");
 
-	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
+	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Расход'");
 
-	$poisk_tn = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
+	$poisk_tn = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Расход'");
 
 ?>
 
@@ -34,7 +34,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/doxod_s.css">
-	<title>Доход</title>
+	<title>Расходы</title>
 </head>
 <body>
 	<header>
@@ -48,11 +48,11 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 					 <a href="chel.php">Цели</a>
 				</div>
 				<div class="item">
-					 <a href="#">Доходы</a>
-					 <div class="palka"></div>
+					 <a href="create_doxoda.php">Доходы</a>
 				</div>
 				<div class="item">
-					 <a href="create_rashoda.php">Расходы</a>
+					 <a href="#">Расходы</a>
+					 <div class="palka"></div>
 				</div>
 				<div class="item">
 					 <a href="index.php"><?=$_COOKIE['user']?></a>
@@ -74,7 +74,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				<div class="grey">
 				<div class="fon2"> 
 				<div class="o">
-					<form action="creat_doxoda_p.php" method="post">
+					<form action="create_rashoda_p.php" method="post">
 					<select class="sectw" name="select_kto">
     						<option selected value="Папа">Папа</option>
     						<option value="Мама">Мама</option>
@@ -84,13 +84,13 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				<input type="text" name="price" id="price" placeholder="Стоимость">
 				<input type="date" name="date_k" id="date_k" placeholder="Дата">
 				<select class="sectw" name="select_type">
-    						<option selected value="Работа">Работа</option>
-    						<option value="Акции">Акции</option>
-    						<option value="Премия">Премия</option>
-    						<option value="Подработка">Подработка</option>
-    						<option value="Пособие">Пособие</option>
-    						<option value="Степендия">Степендия</option>
-    						<option value="Доп-доход">Доп-доход</option>
+    						<option selected value="Продукты">Продукты</option>
+    						<option value="Здоровье">Здоровье</option>
+    						<option value="Вещи">Вещи</option>
+    						<option value="Транспорт">Транспорт</option>
+    						<option value="Развлечения">Развлечения</option>
+    						<option value="Рестораны">Рестораны</option>
+    						<option value="Прочее">Прочее</option>
    				</select>
 				<button type="submit">Создать</button>
 					</form>
@@ -103,7 +103,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				</div>
 			</div>
 			
-			<h1>Доход</h1>
+			<h1>Расходы</h1>
 				<div class="shcaf">
 					<div class="pol">
 						<h2>Кто</h2>

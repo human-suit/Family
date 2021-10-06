@@ -27,7 +27,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/chel_s.css">
+	<link rel="stylesheet" href="css/chell.css">
 	<title>Цели</title>
 </head>
 <body>
@@ -46,7 +46,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 					 <a href="create_doxoda.php">Доходы</a>
 				</div>
 				<div class="item">
-					 <a href="#">Расходы</a>
+					 <a href="create_rashoda.php">Расходы</a>
 				</div>
 				<div class="item">
 					 <a href="index.php"><?=$_COOKIE['user']?></a>
@@ -73,7 +73,16 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				<input type="text" name="price" id="price" placeholder="Стоимость">
 				<button type="submit">Создать</button>
 					</form>
-				<form action="php/delete.php" method="post">
+						</div>
+					<div>
+						</div>
+				</div>
+			</div>
+			<div class="grey">
+				<div class="fon2"> 
+				<div class="p">
+					<form action="php/delete.php" method="post">
+				<input type="text" name="name_c" id="name_c" placeholder="Наименование">
 				<button class="delete" type="submit">Удалить</button>
 					</form>
 						</div>
@@ -88,7 +97,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 						<?php
 							while($name_chel = mysqli_fetch_assoc($poisk_n)) {
 						?>
-							<h2><?php echo $name_chel['name_c']; ?></h2>
+							<h3><?php echo $name_chel['name_c']; ?></h3>
 							<?php
 
 							}

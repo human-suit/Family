@@ -306,6 +306,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id ");
 	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id ");
 	$poisk_ty = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id ");
+	$poisk_a = mysqli_query($mysql, "SELECT SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE'Доход'  ");
 
 ?>
 <!DOCTYPE html>
@@ -335,7 +336,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 					 <a href="create_doxoda.php">Доходы</a>
 				</div>
 				<div class="item">
-					 <a href="#">Расходы</a>
+					 <a href="create_rashoda.php">Расходы</a>
 				</div>
 				<div class="item">
 					 <a href="#"><?=$_COOKIE['user']?></a>
@@ -400,7 +401,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 						<?php
 							while($pricr_chel = mysqli_fetch_assoc($poisk_p)) {
 						?>
-							<h3><?php echo $pricr_chel['price']; ?></h3>
+							<h3><?php echo $pricr_chel['price']; ?> руб</h3>
 							<?php
 
 							}
@@ -430,6 +431,17 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 						?>
 					</div>
 				</div>
+				<div class="pol">
+						<h2 style="color: #0055C4;">Сумма доходов</h2>
+						<?php
+							while($sum = mysqli_fetch_assoc($poisk_a)) {
+						?>
+							<h3><?php echo $sum['user_sum']; ?> руб</h3>
+							<?php
+
+							}
+						?>
+					</div>
 				</div>
 			</div>
 		</div>

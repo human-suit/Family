@@ -1,0 +1,148 @@
+body{
+	display: block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.container{
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1170px;
+}
+#back{
+	width: 100%;
+	height: 100vh;
+    background: url("../img/Lpagepoizk3.jpg") center no-repeat;
+    background-size: cover;
+}
+h1{
+	margin-left: 60px;
+}
+.menu_con{
+	font-size: 18px;
+	padding-top: 10px;
+	margin-left: 400px;
+}
+a{
+	margin-left: 50px;
+	color: white;
+	text-decoration: none;
+}
+a:hover{
+	cursor: pointer;
+	color: #8E5F67;
+	transition: 0.2s;
+}
+.polka{
+	display: flex;
+}
+.shcaf{
+	padding: 0 50px 50px 150px;
+	display: flex;
+}
+.reg{
+	margin-right: 90px;
+}
+.fon h1{
+	text-align: center;
+	margin-right: 30px;
+}
+.fon2 input{
+	margin-right: 20px;
+}
+.o{
+	margin-left:30px;
+	display: flex;
+}
+.sectw{
+	margin-right:20px;
+}
+.delete{
+	margin-top: 8px;
+}
+.pol h2{
+	height: 20px;
+	width: 100px;
+	margin-right: 20px; 
+	font-size: 19px;
+}
+.pol h3{
+	margin:16px 30px 0 0px;
+}
+.fon{
+	margin-left: 200px;
+	overflow: auto;
+	display: block;
+	background: #FAFAFA;
+	height: 670px;
+	width: 840px;
+}
+.grey{
+	background: #EEECEC;
+	height: 50px;
+}
+.pusto{
+	height: 20px;
+}
+.fon2{
+	margin-bottom: 40px;
+}	
+.ind{
+	margin-left: 160px;
+}
+.fon2 button{
+	cursor: pointer;
+	margin-left: 10px;
+	margin-right: 15px;
+	box-shadow: 4px 4px 16px -4px #C8693F;
+	border-radius: 5px;
+	color: white;
+	padding: 8px 20px 8px 20px;
+	width: 100px;
+	background: #EA7D4A;
+
+}
+.fon2 input{
+	margin-top: 15px;
+	width: 140px;	
+}
+.fon3 h2{
+	margin-left: 30px;
+}
+.fon3{
+	display: block;
+	margin: 0 auto;
+	padding: 15px 15px 15px 45px;
+	background: #FAFAFA;
+	box-shadow: 0 0 5px;
+	height: 180px;
+	width: 190px;
+}
+.logo{
+	font-size: 30px;
+}
+.menu{
+	padding-bottom: 8px;
+	border-bottom: 1px solid #E5E5E5;
+	padding-top: 20px;
+	display: flex;
+}
+.menu2{
+	margin-top: 14px;
+	margin-left: 290px;
+	display: flex;
+}
+.menu2 a{
+	color: #848389;
+}
+.palka{
+	margin-top: 5px;
+	margin-left: 72px;
+	height: 2px;
+	width: 10px;
+	background:#656565;
+}
+.item2{
+	margin-top: 6px;
+	margin-left: 280px;
+}
