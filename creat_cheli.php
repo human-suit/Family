@@ -5,15 +5,6 @@
 	$price = filter_var(trim($_POST['price']),
 	FILTER_SANITIZE_STRING);
 
-	if (mb_strlen($name_c) < 2 || mb_strlen($name_c) > 90) {
-		echo "Недопустимая длина наименовании";
-		exit();
-	}
-	else if (mb_strlen($price) < 1 || mb_strlen($price) > 10) {
-		echo "Недопустимая цена";
-		exit();
-	}
-
 	$mysql = new mysqli('localhost','root','','bd_family');
 
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
@@ -29,7 +20,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	$mysql->close();
 	?>
 
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -38,11 +29,11 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	<title>Цели</title>
 </head>
 <body>
-	<header class="center">
+	<header id="back" class="center">
 		<div class="container">
 			<div class="menu">
 				<div class="title">
-					Вы успещно создали цель
+					Вы успешно создали цель
 				</div>
 				<div class="item2">
 					 <a href="chel.php">Выйти</a>

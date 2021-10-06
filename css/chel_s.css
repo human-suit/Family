@@ -50,10 +50,17 @@ a:hover{
 .fon2 input{
 	margin-right: 20px;
 }
+.o{
+	margin-left:40px;
+	display: flex;
+}
 .pol progress{
 	margin: 23px 30px 0 0;
 	height: 14px;
 	width: 100px;
+}
+.delete{
+	margin-top: 8px;
 }
 .pol h2{
 	height: 20px;
@@ -65,11 +72,11 @@ a:hover{
 	margin:16px 30px 0 0px;
 }
 .fon{
-	margin-left: 200px;
+	margin-left: 220px;
 	overflow: auto;
 	display: block;
 	background: #FAFAFA;
-	height: 700px;
+	height: 670px;
 	width: 700px;
 }
 .grey{
@@ -80,7 +87,6 @@ a:hover{
 	height: 20px;
 }
 .fon2{
-	float: right;
 	margin-bottom: 40px;
 }	
 .ind{
@@ -125,14 +131,11 @@ a:hover{
 }
 .menu2{
 	margin-top: 14px;
-	margin-left: 120px;
+	margin-left: 280px;
 	display: flex;
 }
 .menu2 a{
 	color: #848389;
-}
-.item{
-	margin-left: 40px;
 }
 .palka{
 	margin-top: 5px;

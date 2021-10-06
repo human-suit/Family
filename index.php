@@ -22,19 +22,19 @@
 					 <div class="palka"></div>
 				</div>
 				<div class="item">
-					 <a href="#">О нас</a>
+					 <a href="#onas">О нас</a>
 				</div>
 				<div class="item">
-					 <a href="#">Цели</a>
+					 <a href="#chel">Цели</a>
 				</div>
 				<div class="item">
-					 <a href="#">Доходы</a>
+					 <a href="#doxod">Доходы</a>
 				</div>
 				<div class="item">
-					 <a href="#">Расходы</a>
+					 <a href="#rashod">Расходы</a>
 				</div>
 				<div class="item2">
-					 <a href="vxod.html">Войти</a>
+					 <a href="vxod.php">Войти</a>
 				</div>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 			
 		</div>
 	</section>
-	<section class="foter_2">
+	<section id="onas" class="foter_2">
 		<div class="container">
 		 	<div class="title2">
 		 		<div>
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="foter_4">
+	<section id="chel" class="foter_4">
 		<div class="container">
 			<div class="title3">
 		 		<div>
@@ -137,7 +137,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="foter_5">
+	<section id="doxod" class="foter_5">
 		<div class="container">
 			<div class="title3">
 		 		<div>
@@ -222,7 +222,7 @@
 	<section class="blu_fone">
 		
 	</section>
-	<section class="flex">
+	<section id="rashod" class="flex">
 		<div class="container">
 			<div class="title3">
 		 		<div>
@@ -329,13 +329,10 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				</div>
 				<div class="menu2">
 				<div class="item">
-					 <a href="index.html">Главная</a>
-				</div>
-				<div class="item">
 					 <a href="chel.php">Цели</a>
 				</div>
 				<div class="item">
-					 <a href="#">Доходы</a>
+					 <a href="create_doxoda.php">Доходы</a>
 				</div>
 				<div class="item">
 					 <a href="#">Расходы</a>
@@ -360,9 +357,17 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				<div class="grey">
 					<div class="main_poizk">
 						<div>
-							<input type="name_t" name="name_t" id="name_t" placeholder="Имя таблицы">
+							<form action="poizk_spiska.php">
+							<select class="sectw" name="name_t">
+    						<option selected value="name_kto">Кто</option>
+    						<option value="type_s">Тип</option>
+    						<option value="price">Сколько</option>
+    						<option value="date_s">Дата</option>
+    						<option value="name_type_s">Наименование типа</option>
+   						</select>
 							<input type="name_name" name="name_name" id="name_name" placeholder="Наименование">
 							<button type="submit">Поиск</button>
+							</form>
 						</div>
 					</div>
 				</div>

@@ -27,7 +27,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/new_chel.css">
+	<link rel="stylesheet" href="css/chel_s.css">
 	<title>Цели</title>
 </head>
 <body>
@@ -39,14 +39,11 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				</div>
 				<div class="menu2">
 				<div class="item">
-					 <a href="index.html">Главная</a>
-				</div>
-				<div class="item">
 					 <a href="chel.php">Цели</a>
 					 <div class="palka"></div>
 				</div>
 				<div class="item">
-					 <a href="#">Доходы</a>
+					 <a href="create_doxoda.php">Доходы</a>
 				</div>
 				<div class="item">
 					 <a href="#">Расходы</a>
@@ -70,14 +67,14 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 			<div class="fon">
 				<div class="grey">
 				<div class="fon2"> 
-				<div>
-					<form action="php/creat_cheli.php" method="post">
+				<div class="o">
+					<form action="creat_cheli.php" method="post">
 				<input type="text" name="name_c" id="name_c" placeholder="Наименование">
 				<input type="text" name="price" id="price" placeholder="Стоимость">
 				<button type="submit">Создать</button>
 					</form>
 				<form action="php/delete.php" method="post">
-				<button type="submit">Удалить</button>
+				<button class="delete" type="submit">Удалить</button>
 					</form>
 						</div>
 					<div>

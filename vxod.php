@@ -16,7 +16,7 @@
 				<div class="fon">
 					<div class="up">
 						<h1>Вход</h1>
-			<form action="php/prov.php" method="post">
+			<form action="prov.php" method="post">
 				<input type="text" name="login" id="login" placeholder="Введите Логин">
 				<input type="password" name="passwor" id="passwor" placeholder="Введите Пароль">
 				<div class="pol">
