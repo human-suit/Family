@@ -1,6 +1,6 @@
 <?php
 
-	$name_t = filter_var(trim($_POST['name_t']),
+	$select_type_v = filter_var(trim($_POST['select_type_v']),
 	FILTER_SANITIZE_STRING);
 	$name_name = filter_var(trim($_POST['name_name']),
 	FILTER_SANITIZE_STRING);
@@ -20,14 +20,9 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 		$User_id=$login_s['id_accounta'];
 	}
 }
-
-	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_ty = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id ");
-
-	$poisk_date = mysqli_query($mysql, "SELECT * FROM `spiski` WHERE id_accounta like $User_id AND WHERE $name_t Like $name_name+'%'");
+	echo($select_type_v);
+	echo($name_name);
+	$poisk_date = mysqli_query($mysql, "SELECT * FROM `spiski` WHERE `id_accounta` LIKE $User_id AND $select_type_v LIKE $name_name+'%'");
 	echo($poisk_date);
 	exit();
 
@@ -59,7 +54,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 					 <a href="create_doxoda.php">Доходы</a>
 				</div>
 				<div class="item">
-					 <a href="#">Расходы</a>
+					 <a href="create_rashoda.php">Расходы</a>
 				</div>
 				<div class="item">
 					 <a href="#"><?=$_COOKIE['user']?></a>
@@ -100,9 +95,9 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 					<div class="pol">
 						<h2>Кто</h2>
 						<?php
-							while($name_chel = mysqli_fetch_assoc($poisk_date)) {
+							while($nam_chel = mysqli_fetch_assoc($poisk_date)) {
 						?>
-							<h3><?php echo $name_chel["namekto"]; ?></h3>
+							<h3><?php echo $nam_chel["0"]; ?></h3>
 							<?php
 
 							}

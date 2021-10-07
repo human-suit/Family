@@ -358,8 +358,8 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				<div class="grey">
 					<div class="main_poizk">
 						<div>
-							<form action="poizk_spiska.php">
-							<select class="sectw" name="name_t">
+							<form action="poizk_spiska.php" method="post">
+							<select class="sectw" name="select_type_v">
     						<option selected value="name_kto">Кто</option>
     						<option value="type_s">Тип</option>
     						<option value="price">Сколько</option>
