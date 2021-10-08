@@ -3,7 +3,6 @@
 	$mysql = new mysqli('localhost','root','','bd_family');
 
 	$resulta = mysqli_query($mysql, "SELECT * FROM `cheli`");
-
 	$name_c = filter_var(trim($_POST['name_c']),
 	FILTER_SANITIZE_STRING);
 

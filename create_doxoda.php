@@ -2,11 +2,8 @@
 	$mysql = new mysqli('localhost','root','','bd_family');
 	
 	$result = mysqli_query($mysql, "SELECT `name_kto` FROM `spiski`");
-	
 	$resultc = mysqli_query($mysql, "SELECT `price` FROM `spiski`");
-
 	$resultd = mysqli_query($mysql, "SELECT `date_s` FROM `spiski`");
-
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
 
 while ($login_s = mysqli_fetch_assoc($resulta)) {
@@ -15,15 +12,11 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	}
 }
 
-	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
-
-	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
-
-	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
-
-	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
-
-	$poisk_tn = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'");
+	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'  ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'  ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'  ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'  ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_tn = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE 'Доход'  ORDER BY `spiski`.`id_spiska` DESC");
 
 ?>
 
@@ -33,8 +26,8 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/doxod_s.css">
-	<title>Доход</title>
+	<link rel="stylesheet" href="css/doxod_ss.css">
+	<title>Доходы</title>
 </head>
 <body>
 	<header>
@@ -74,7 +67,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				<div class="grey">
 				<div class="fon2"> 
 				<div class="o">
-					<form action="creat_doxoda_p.php" method="post">
+					<form action="create_doxoda_s.php" method="post">
 					<select class="sectw" name="select_kto">
     						<option selected value="Папа">Папа</option>
     						<option value="Мама">Мама</option>
@@ -103,7 +96,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 				</div>
 			</div>
 			
-			<h1>Доход</h1>
+			<h1>Доходы</h1>
 				<div class="shcaf">
 					<div class="pol">
 						<h2>Кто</h2>

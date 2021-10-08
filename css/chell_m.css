@@ -37,7 +37,8 @@ a:hover{
 	display: flex;
 }
 .shcaf{
-	padding: 0 50px 50px 150px;
+	overflow: auto;
+	padding: 0 50px 50px 50px;
 	display: flex;
 }
 .reg{
@@ -51,18 +52,20 @@ a:hover{
 	margin-right: 20px;
 }
 .o{
-	margin-left:30px;
+	margin-left:120px;
 	display: flex;
 }
-.sectw{
-	margin-right:20px;
+.pol progress{
+	margin: 23px 30px 0 0;
+	height: 14px;
+	width: 100px;
 }
 .delete{
 	margin-top: 8px;
 }
 .pol h2{
 	height: 20px;
-	width: 100px;
+	width: 150px;
 	margin-right: 20px; 
 	font-size: 19px;
 }
@@ -70,14 +73,15 @@ a:hover{
 	margin:16px 30px 0 0px;
 }
 .fon{
-	margin-left: 200px;
+	margin-left: 220px;
 	overflow: auto;
 	display: block;
 	background: #FAFAFA;
 	height: 670px;
-	width: 840px;
+	width: 700px;
 }
 .grey{
+	margin-bottom: 20px;
 	background: #EEECEC;
 	height: 50px;
 }
@@ -98,7 +102,7 @@ a:hover{
 	border-radius: 5px;
 	color: white;
 	padding: 8px 20px 8px 20px;
-	width: 100px;
+	width: 120px;
 	background: #EA7D4A;
 
 }
@@ -118,6 +122,10 @@ a:hover{
 	height: 180px;
 	width: 190px;
 }
+.p{
+	margin-left:290px;
+	display: flex;
+}
 .logo{
 	font-size: 30px;
 }
@@ -129,7 +137,7 @@ a:hover{
 }
 .menu2{
 	margin-top: 14px;
-	margin-left: 290px;
+	margin-left: 280px;
 	display: flex;
 }
 .menu2 a{
@@ -137,7 +145,7 @@ a:hover{
 }
 .palka{
 	margin-top: 5px;
-	margin-left: 72px;
+	margin-left: 62px;
 	height: 2px;
 	width: 10px;
 	background:#656565;

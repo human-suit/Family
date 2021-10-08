@@ -35,9 +35,7 @@
 
 		<?php
 		exit();
-	}
-	else if (mb_strlen($passwor) < 4 || mb_strlen($passwor) > 90) {
-		?>
+	}	else if (mb_strlen($passwor) < 4 || mb_strlen($passwor) > 90) {	?>
 		<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +72,6 @@
 
 	$mysql = new mysqli('localhost','root','','bd_family');
 	$mysql->query("INSERT INTO `accounts` (`login`,`passwor`) VALUES ('$login','$passwor')");
-
 	$mysql->close();
 
 ?>

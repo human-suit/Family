@@ -2,9 +2,7 @@
 	$mysql = new mysqli('localhost','root','','bd_family');
 	
 	$result = mysqli_query($mysql, "SELECT `name_c` FROM `cheli`");
-	
 	$resultc = mysqli_query($mysql, "SELECT `price` FROM `cheli`");
-
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
 
 while ($login_s = mysqli_fetch_assoc($resulta)) {
@@ -14,7 +12,6 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 }
 
 	$poisk_n = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id ");
-
 	$poisk_p = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id ");
 	$poisk_i = mysqli_query($mysql, "SELECT id_cheli FROM `cheli` WHERE id_accounta like $User_id ");
 	$poisk_id = mysqli_query($mysql, "SELECT id_accounta FROM `cheli` WHERE id_accounta like $User_id ");

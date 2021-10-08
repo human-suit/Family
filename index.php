@@ -287,26 +287,30 @@
 	$mysql = new mysqli('localhost','root','','bd_family');
 	
 	$result = mysqli_query($mysql, "SELECT `name_kto` FROM `spiski`");
-	
 	$resultc = mysqli_query($mysql, "SELECT `price` FROM `spiski`");
-
 	$resultd = mysqli_query($mysql, "SELECT `date_s` FROM `spiski`");
-
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
 
-while ($login_s = mysqli_fetch_assoc($resulta)) {
-	if($_COOKIE['user'] == $login_s['login']){
-		$User_id=$login_s['id_accounta'];
+	while ($login_s = mysqli_fetch_assoc($resulta)) {
+		if($_COOKIE['user'] == $login_s['login']){
+			$User_id=$login_s['id_accounta'];
+		}
 	}
-}
 
-	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id ");
+	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
 
-	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_ty = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id ");
-	$poisk_a = mysqli_query($mysql, "SELECT SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE'Доход'  ");
+	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_ty = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_cheli = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id ORDER BY `cheli`.`id_cheli` DESC");
+	$poisk_chel = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id ORDER BY `cheli`.`id_cheli` DESC");
+	$poisk_os = mysqli_query($mysql, "SELECT sum FROM `sum` WHERE id_accounta like $User_id");
+	$naxod_sum = mysqli_query($mysql, "SELECT SUM(price) AS user_ras FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE'Расход'  ");
+
+	while($chels = mysqli_fetch_assoc($poisk_os)) {
+		$sum=$chels['sum'];
+	}
 
 ?>
 <!DOCTYPE html>
@@ -314,7 +318,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/indexx.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -431,16 +435,41 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 						?>
 					</div>
 				</div>
-				<div class="pol">
-						<h2 style="color: #0055C4;">Сумма доходов</h2>
-						<?php
-							while($sum = mysqli_fetch_assoc($poisk_a)) {
+				</div>
+				<div class="top">
+						<h2 style="color: black;">Сумма доходов - с учетом расходов = <?php
+						while($chels = mysqli_fetch_assoc($naxod_sum)) {
+
+							$ras=$chels['user_ras'];
+
+							if($ras > $sum){
+								echo("Не могут расходы превышать доходы!");
+								exit();
+							}
+							else {
+
+							$res = $sum - $ras;
+							echo($res); 
+		
+							}
+						}
+						?> </h2>
+						<form action="rashod.php" method="post">
+							<select class="sectw" name="name_c">
+    						<option selected value="name_kto">Выберите цель</option>
+    						<?php
+							while($chels = mysqli_fetch_assoc($poisk_cheli)) {
 						?>
-							<h3><?php echo $sum['user_sum']; ?> руб</h3>
+							<option value="<?php $chels['name_c']; ?>"><?php echo $chels['name_c']; ?></option>
 							<?php
 
 							}
 						?>
+   						</select>
+							<input type="rashos" name="rashos" id="rashos" placeholder="Cколько">
+
+						<button name="by" type="submit">Отправить</button>
+						</form>	
 					</div>
 				</div>
 			</div>

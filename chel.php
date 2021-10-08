@@ -1,23 +1,24 @@
 <?php
-	$mysql = new mysqli('localhost','root','','bd_family');
-	
+	//Подключения к бд
+    $mysql = new mysqli('localhost','root','','bd_family'); 
 	$result = mysqli_query($mysql, "SELECT `name_c` FROM `cheli`");
-	
 	$resultc = mysqli_query($mysql, "SELECT `price` FROM `cheli`");
-
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
 
-while ($login_s = mysqli_fetch_assoc($resulta)) {
-	if($_COOKIE['user'] == $login_s['login']){
-		$User_id=$login_s['id_accounta'];
+	//цикл для получения нужного аккаунта
+	while ($login_s = mysqli_fetch_assoc($resulta)) { 
+		if($_COOKIE['user'] == $login_s['login']){
+			$User_id=$login_s['id_accounta'];
+		}
 	}
-}
 
-	$poisk_n = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id ");
-
-	$poisk_p = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id ");
-	$poisk_i = mysqli_query($mysql, "SELECT id_cheli FROM `cheli` WHERE id_accounta like $User_id ");
-	$poisk_id = mysqli_query($mysql, "SELECT id_accounta FROM `cheli` WHERE id_accounta like $User_id ");
+	//Запросы на выборку данных
+	$poisk_n = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC"); 
+	$poisk_p = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC"); 
+	$poisk_i = mysqli_query($mysql, "SELECT id_cheli FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC");
+	$poisk_id = mysqli_query($mysql, "SELECT id_accounta FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC");
+	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  and name_c  like 'Питер'"); 
+	$poisk_os = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  and name_c  like 'Питер'");
 
 ?>
 
@@ -27,7 +28,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/chell.css">
+	<link rel="stylesheet" href="css/chell_m.css">
 	<title>Цели</title>
 </head>
 <body>
@@ -119,7 +120,14 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 						<?php
 							while($kol = mysqli_fetch_assoc($poisk_i)) {
 						?>
-							<progress value="0" max="100"></progress>
+							<progress value="<?php 
+				while($chels = mysqli_fetch_assoc($poisk_ost)) {
+					$otv = $chels['rashod_cheli'];
+					$poi = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id and `rashod_cheli` like '$otv'"); 
+					$humber2 = mysqli_fetch_assoc($poi);
+					$resultam = $otv / $humber2['price'] * 100;
+					echo($resultam);
+				} ?>" max="100"></progress>
 							<?php
 
 							}
@@ -130,7 +138,19 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 						<?php
 							while($kola = mysqli_fetch_assoc($poisk_id)) {
 						?>
-							<h3>0</h3>
+							<h3><?php 
+					while($chel = mysqli_fetch_assoc($poisk_os)) {
+						$otv = $chel['rashod_cheli'];
+						$poi = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id and `rashod_cheli` like '$otv'"); 
+						$humber2 = mysqli_fetch_assoc($poi);
+						if($otv >= $humber2['price']){
+							echo("Выполнено!");
+						}
+						elseif($otv < $humber2['price']) {
+							$resultam =$humber2['price'] - $otv ;
+							echo($resultam);
+						}
+				} ?></h3>
 							<?php
 
 							}

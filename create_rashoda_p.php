@@ -10,7 +10,7 @@
 	FILTER_SANITIZE_STRING);
 	$type = "Расход";
 
-	if (mb_strlen($price) <= 1 || mb_strlen($price) > 10 ) {?>
+	if (mb_strlen($price) <= 1 || mb_strlen($price) > 10 ) {	?>
 		<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,8 +40,7 @@
 </html>
 <?php
 		exit();
-	}
-	if (mb_strlen($date_k) == "") {?>
+	}	if (mb_strlen($date_k) == "") {		?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
