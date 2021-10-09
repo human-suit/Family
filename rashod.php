@@ -2,8 +2,7 @@
 
 	$name_c = filter_var(trim($_POST['name_c']),
 	FILTER_SANITIZE_STRING);
-	echo($name_c);
-	exit();
+	setcookie('name_c', $name_c, time() + 3600, "/");
 	$rashos = filter_var(trim($_POST['rashos']),
 	FILTER_SANITIZE_STRING);
 	if($rashos < 0){
@@ -100,16 +99,14 @@ exit();
 					where id_accounta = $User_id");
 				
 	}
-	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  and name_c  like 'Питер'"); 
+	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id and name_c like'$name_c'"); 
 	while($chels = mysqli_fetch_assoc($poisk_ost)) {
 					$otv = $chels['rashod_cheli'];
 					$otv2 = $otv;
-					$poi = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id and `rashod_cheli` like '$otv'"); 
-					$humber2 = mysqli_fetch_assoc($poi);
 					$resultam = $otv2 + $rashos;
 					$mysql->query("UPDATE cheli
 					SET rashod_cheli = '$resultam' 
-					where id_accounta = $User_id and name_c = 'Питер'");
+					where id_accounta like '$User_id' and name_c like '$name_c'");
 
 
 	}

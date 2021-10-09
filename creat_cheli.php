@@ -76,7 +76,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	}
 }
 
-	$mysql->query("INSERT INTO `cheli` (`id_accounta`,`name_c`,`price`) VALUES ('$User_id','$name_c','$price')");
+	$mysql->query("INSERT INTO `cheli` (`id_accounta`,`name_c`,`price`,`rashod_cheli`) VALUES ('$User_id','$name_c','$price','0')");
 
 	$mysql->close();
 	?>

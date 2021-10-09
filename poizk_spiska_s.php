@@ -84,7 +84,7 @@
     						<option value="name_type_s">Наименование типа</option>
    						</select>
 							<input type="name_name" name="name_name" id="name_name" placeholder="Наименование">
-							<button type="submit">Поиск</button>
+							<button type="submit">Обновить</button>
 							</form>
 						</div>
 					</div>
@@ -377,7 +377,7 @@
     						<option value="name_type_s">Наименование типа</option>
    						</select>
 							<input type="name_name" name="name_name" id="name_name" placeholder="Наименование">
-							<button type="submit">Поиск</button>
+							<button type="submit">Обновить таблицы</button>
 							</form>
 						</div>
 					</div>
@@ -660,16 +660,8 @@
 				<div class="grey">
 					<div class="main_poizk">
 						<div>
-							<form action="poizk_spiska.php">
-							<select class="sectw" name="name_t">
-    						<option selected value="name_kto">Кто</option>
-    						<option value="type_s">Тип</option>
-    						<option value="price">Сколько</option>
-    						<option value="date_s">Дата</option>
-    						<option value="name_type_s">Наименование типа</option>
-   						</select>
-							<input type="name_name" name="name_name" id="name_name" placeholder="Наименование">
-							<button type="submit">Поиск</button>
+							<form action="index.php">
+							<button type="submit">Обновить</button>
 							</form>
 						</div>
 					</div>

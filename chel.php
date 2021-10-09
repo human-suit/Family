@@ -13,12 +13,13 @@
 	}
 
 	//Запросы на выборку данных
+		$name_s = $_COOKIE['name_c'];
 	$poisk_n = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC"); 
 	$poisk_p = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC"); 
 	$poisk_i = mysqli_query($mysql, "SELECT id_cheli FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC");
 	$poisk_id = mysqli_query($mysql, "SELECT id_accounta FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC");
-	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  and name_c  like 'Питер'"); 
-	$poisk_os = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  and name_c  like 'Питер'");
+	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC"); 
+	$poisk_os = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id  ORDER BY `cheli`.`id_cheli` DESC");
 
 ?>
 
@@ -118,16 +119,16 @@
 					<div class="pol">
 						<h3>Прогресс</h3>
 						<?php
-							while($kol = mysqli_fetch_assoc($poisk_i)) {
+							while($chels = mysqli_fetch_assoc($poisk_ost)) {
+
 						?>
 							<progress value="<?php 
-				while($chels = mysqli_fetch_assoc($poisk_ost)) {
 					$otv = $chels['rashod_cheli'];
 					$poi = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id and `rashod_cheli` like '$otv'"); 
 					$humber2 = mysqli_fetch_assoc($poi);
 					$resultam = $otv / $humber2['price'] * 100;
 					echo($resultam);
-				} ?>" max="100"></progress>
+				 ?>" max="100"></progress>
 							<?php
 
 							}
@@ -136,10 +137,9 @@
 					<div class="pol">
 						<h3>Остаток</h3>
 						<?php
-							while($kola = mysqli_fetch_assoc($poisk_id)) {
+							while($chel = mysqli_fetch_assoc($poisk_os)) {
 						?>
 							<h3><?php 
-					while($chel = mysqli_fetch_assoc($poisk_os)) {
 						$otv = $chel['rashod_cheli'];
 						$poi = mysqli_query($mysql, "SELECT price FROM `cheli` WHERE id_accounta like $User_id and `rashod_cheli` like '$otv'"); 
 						$humber2 = mysqli_fetch_assoc($poi);
@@ -150,7 +150,7 @@
 							$resultam =$humber2['price'] - $otv ;
 							echo($resultam);
 						}
-				} ?></h3>
+				 ?></h3>
 							<?php
 
 							}

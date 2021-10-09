@@ -362,7 +362,7 @@
 				<div class="grey">
 					<div class="main_poizk">
 						<div>
-							<form action="poizk_spiska.php" method="post">
+							<form action="poizk_spiska_s.php" method="post">
 							<select class="sectw" name="select_type_v">
     						<option selected value="name_kto">Кто</option>
     						<option value="type_s">Тип</option>
@@ -436,6 +436,11 @@
 					</div>
 				</div>
 				</div>
+				<div class="grafics">
+					<form action="grafic.php" method="post">
+							<button name="by" type="submit">График</button>
+						</form>
+				</div>
 				<div class="top">
 						<h2 style="color: black;">Сумма доходов - с учетом расходов = <?php
 						while($chels = mysqli_fetch_assoc($naxod_sum)) {
@@ -458,11 +463,11 @@
 							<select class="sectw" name="name_c">
     						<option selected value="name_kto">Выберите цель</option>
     						<?php
+    						$i=0;
 							while($chels = mysqli_fetch_assoc($poisk_cheli)) {
 						?>
-							<option value="<?php $chels['name_c']; ?>"><?php echo $chels['name_c']; ?></option>
+							<option value="<?php echo($chels['name_c']) ?>"><?php echo $chels['name_c']; ?></option>
 							<?php
-
 							}
 						?>
    						</select>
