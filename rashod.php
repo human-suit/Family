@@ -2,6 +2,38 @@
 
 	$name_c = filter_var(trim($_POST['name_c']),
 	FILTER_SANITIZE_STRING);
+	if($name_c =="name_kto"){
+		?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/otpravka.css">
+	<title>Доход</title>
+</head>
+<body>
+	<header id="back" class="center">
+		<div class="container">
+			<div class="menu">
+				<div class="title">
+					Нет цели!
+				</div>
+				<div class="item2">
+					 <a href="index.php">Выйти</a>
+				</div>
+				</div>
+			</div>
+			<div class="pusto">
+				
+			</div>
+		</div>
+	</header>
+</body>
+</html>
+<?php
+exit();
+	}
 	setcookie('name_c', $name_c, time() + 3600, "/");
 	$rashos = filter_var(trim($_POST['rashos']),
 	FILTER_SANITIZE_STRING);

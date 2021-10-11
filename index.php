@@ -47,7 +47,7 @@
 		<div class="container">
 			<div class="title_main">
 				<div class="title"> 
-					<h2>Зарегестрируйтесь на Family и мы поможем вам <br> вести учет доходов и расходов семьи.</h2>
+					<h2>Зарегистрируйтесь на Family и мы поможем вам <br> вести учет доходов и расходов семьи.</h2>
 				</div>
 				<div class="button">
 					<a href="register.html">Зарегистрироватся</a>
@@ -318,7 +318,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/indexx.css">
+	<link rel="stylesheet" href="css/indexxx.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -363,6 +363,21 @@
 					<div class="main_poizk">
 						<div>
 							<form action="poizk_spiska_s.php" method="post">
+								<select class="sectw" name="mesac">
+    						<option selected value="Месяцы">Месяцы</option>
+    						<option value="1">Январь</option>
+    						<option value="2">Февраль</option>
+    						<option value="3">Март</option>
+    						<option value="4">Апрель</option>
+    						<option value="5">Май</option>
+    						<option value="6">Июнь</option>
+    						<option value="7">Июль</option>
+    						<option value="8">Август</option>
+    						<option value="9">Сентябрь</option>
+    						<option value="10">Октябрь</option>
+    						<option value="11">Ноябрь</option>
+    						<option value="12">Декабрь</option>
+   						</select>
 							<select class="sectw" name="select_type_v">
     						<option selected value="name_kto">Кто</option>
     						<option value="type_s">Тип</option>
@@ -438,7 +453,11 @@
 				</div>
 				<div class="grafics">
 					<form action="grafic.php" method="post">
-							<button name="by" type="submit">График</button>
+						<select class="sectw" name="dox_ras">
+    						<option selected value="Доход">Доход</option>
+    						<option value="Расход">Расход</option>
+   						</select>
+							<button class="blat" name="by" type="submit">График</button>
 						</form>
 				</div>
 				<div class="top">
@@ -473,7 +492,7 @@
    						</select>
 							<input type="rashos" name="rashos" id="rashos" placeholder="Cколько">
 
-						<button name="by" type="submit">Отправить</button>
+						<button class="blat" name="by" type="submit">Отправить</button>
 						</form>	
 					</div>
 				</div>

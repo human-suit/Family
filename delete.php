@@ -41,6 +41,7 @@
 
 	$result= mysqli_query($mysql, "SELECT * FROM `cheli`");
 
+
 while ($login_s = mysqli_fetch_assoc($resulta)) {
 	if($_COOKIE['user'] == $login_s['login']){
 		$User_id=$login_s['id_accounta'];
@@ -48,9 +49,43 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 }
 while ($name_cheli = mysqli_fetch_assoc($result)) {
 	if($name_c == $name_cheli['name_c']){
+
+		$resul= mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE `id_accounta` like '$User_id' and name_c like'$name_c';");
+		$che = mysqli_fetch_assoc($resul);
+		$numer2 = $che['rashod_cheli'];
+
+		$resultv= mysqli_query($mysql, "SELECT price FROM `cheli` WHERE `id_accounta` like '$User_id' and name_c like'$name_c';");
+		$chew = mysqli_fetch_assoc($resultv);
+		$numer = $chew['price'];
+
+		if($numer > $numer2){
+
+			$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id and name_c like'$name_c'"); 
+			$sum = mysqli_query($mysql, "SELECT sum FROM `sum` WHERE id_accounta like $User_id;"); 
+			$chel = mysqli_fetch_assoc($sum);
+			$rashos = $chel['sum'];
+			echo $rashos;
+	while($chels = mysqli_fetch_assoc($poisk_ost)) {
+					$otv = $chels['rashod_cheli'];
+					$otv2 = $otv;
+					$resultam = $otv2 + $rashos;
+					$mysql->query("UPDATE sum
+					SET sum = '$resultam' 
+					where id_accounta like '$User_id';");
+
+
+	}
 		$mysql->query("DELETE FROM `cheli` WHERE `id_accounta` like '$User_id';");
 
 		$mysql->close();
+
+		}
+		else if($numer <= $numer2)
+		{
+		$mysql->query("DELETE FROM `cheli` WHERE `id_accounta` like '$User_id';");
+
+		$mysql->close();
+		}
 		?>
 		<!DOCTYPE html>
 <html lang="en">

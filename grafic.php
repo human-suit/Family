@@ -1,9 +1,7 @@
 <?php
+	$dox_ras = filter_var(trim($_POST['dox_ras']),
+	FILTER_SANITIZE_STRING);
 	$mysql = new mysqli('localhost','root','','bd_family');
-	
-	$result = mysqli_query($mysql, "SELECT `name_kto` FROM `spiski`");
-	$resultc = mysqli_query($mysql, "SELECT `price` FROM `spiski`");
-	$resultd = mysqli_query($mysql, "SELECT `date_s` FROM `spiski`");
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
 
 	while ($login_s = mysqli_fetch_assoc($resulta)) {
@@ -12,20 +10,23 @@
 		}
 	}
 
-	$poisk_n = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
+	if ($dox_ras == "Доход") {
+	$poisk_n = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Работа';");
+	$poisk_w = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Акции';");
+	$poisk_e = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Премия';");
+	$poisk_t = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Подработка';");
+	$poisk_y = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Пособие';");
+	$poisk_u = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Степендия';");
+	$poisk_i = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id and name_type_s like'Доп-доход';");
 
-	$poisk_p = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
-	$poisk_i = mysqli_query($mysql, "SELECT date_S FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
-	$poisk_t = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
-	$poisk_ty = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE id_accounta like $User_id ORDER BY `spiski`.`id_spiska` DESC");
-	$poisk_cheli = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id ORDER BY `cheli`.`id_cheli` DESC");
-	$poisk_chel = mysqli_query($mysql, "SELECT name_c FROM `cheli` WHERE id_accounta like $User_id ORDER BY `cheli`.`id_cheli` DESC");
-	$poisk_os = mysqli_query($mysql, "SELECT sum FROM `sum` WHERE id_accounta like $User_id");
-	$naxod_sum = mysqli_query($mysql, "SELECT SUM(price) AS user_ras FROM `spiski` WHERE id_accounta like $User_id AND type_s LIKE'Расход'  ");
-
-	while($chels = mysqli_fetch_assoc($poisk_os)) {
-		$sum=$chels['sum'];
-	}
+	$poisk_sas = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_sasa = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_sasas = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_sasasa = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_s = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_sa = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_su = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
+	$poisk_si = mysqli_query($mysql, "SELECT price, SUM(price) AS user_sum FROM `spiski` WHERE id_accounta like $User_id and type_s like'Доход';");
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +34,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/indexx.css">
+	<link rel="stylesheet" href="css/grafic.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -58,7 +59,7 @@
 					 <a href="create_rashoda.php">Расходы</a>
 				</div>
 				<div class="item">
-					 <a href="#"><?=$_COOKIE['user']?></a>
+					 <a href="index.php"><?=$_COOKIE['user']?></a>
 					 <div class="palka"></div>
 				</div>
 				<div class="item2">
@@ -77,16 +78,8 @@
 				<div class="grey">
 					<div class="main_poizk">
 						<div>
-							<form action="poizk_spiska_s.php" method="post">
-							<select class="sectw" name="select_type_v">
-    						<option selected value="name_kto">Кто</option>
-    						<option value="type_s">Тип</option>
-    						<option value="price">Сколько</option>
-    						<option value="date_s">Дата</option>
-    						<option value="name_type_s">Наименование типа</option>
-   						</select>
-							<input type="name_name" name="name_name" id="name_name" placeholder="Наименование">
-							<button type="submit">Поиск</button>
+							<form action="index.php">
+							<button type="submit">Назад</button>
 							</form>
 						</div>
 					</div>
@@ -94,56 +87,144 @@
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Доход</h2>
 						<?php
-							while($name_chel = mysqli_fetch_assoc($poisk_n)) {
+							while($name_chel = mysqli_fetch_assoc($poisk_sas)) {
 						?>
-							<h3><?php echo $name_chel['name_kto']; ?></h3>
+							<h3><?php echo $name_chel['user_sum']; ?></h3>
 							<?php
 
 							}
 						?>
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h3>Работа</h3>
 						<?php
-							while($type_sp = mysqli_fetch_assoc($poisk_t)) {
+							while($chels = mysqli_fetch_assoc($poisk_n)) {
+
 						?>
-							<h3><?php echo $type_sp['type_s']; ?></h3>
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_sasa);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100 +1;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
 							<?php
 
 							}
 						?>
 					</div>
 					<div class="pol">
-					<h2>Сколько</h2>
+						<h3>Акции</h3>
 						<?php
-							while($pricr_chel = mysqli_fetch_assoc($poisk_p)) {
+							while($chels = mysqli_fetch_assoc($poisk_w)) {
+
 						?>
-							<h3><?php echo $pricr_chel['price']; ?> руб</h3>
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_sasas);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
 							<?php
 
 							}
 						?>
 					</div>
 					<div class="pol">
-						<h2>Дата</h2>
+						<h3>Премия</h3>
 						<?php
-							while($kol = mysqli_fetch_assoc($poisk_i)) {
+							while($chels = mysqli_fetch_assoc($poisk_e)) {
+
 						?>
-						<h3><?php echo $kol['date_S']; ?></h3>
-							
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_sasasa);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
 							<?php
 
 							}
 						?>
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h3>Подработка</h3>
 						<?php
-							while($name_type = mysqli_fetch_assoc($poisk_ty)) {
+							while($chels = mysqli_fetch_assoc($poisk_t)) {
+
 						?>
-							<h3><?php echo $name_type['name_type_s']; ?></h3>
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_s);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
+							<?php
+
+							}
+						?>
+					</div>
+					<div class="pol">
+						<h3>Пособие</h3>
+						<?php
+							while($chels = mysqli_fetch_assoc($poisk_y)) {
+
+						?>
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_sa);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
+							<?php
+
+							}
+						?>
+					</div>
+					<div class="pol">
+						<h3>Степендия</h3>
+						<?php
+							while($chels = mysqli_fetch_assoc($poisk_u)) {
+
+						?>
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_su);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
+							<?php
+
+							}
+						?>
+					</div>
+					<div class="pol">
+						<h3>Доп-доход</h3>
+						<?php
+							while($chels = mysqli_fetch_assoc($poisk_i)) {
+
+						?>
+							<h3><?php 
+					$otv = $chels['price'];
+					$name_che = mysqli_fetch_assoc($poisk_si);
+					$humber2 = $name_che['user_sum'];
+					$resultam = $otv / $humber2 * 100;
+					$resultam = $resultam %	100;
+					echo($resultam);
+				 ?> %</h3>
 							<?php
 
 							}
@@ -160,3 +241,9 @@
 
 
 </html>
+<?php
+exit();
+}
+else if($dox_ras =="Расход"){
+
+}
