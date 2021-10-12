@@ -281,7 +281,7 @@
 </html>
 
 
-	<?php else:?>
+<?php else:?>
 
 <?php
 	$mysql = new mysqli('localhost','root','','bd_family');
