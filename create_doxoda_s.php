@@ -10,29 +10,7 @@
 	FILTER_SANITIZE_STRING);
 	$type = "Доход";
 
-	$mysql = new mysqli('localhost','root','','bd_family');
-
-	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
-
-while ($login_s = mysqli_fetch_assoc($resulta)) {
-	if($_COOKIE['user'] == $login_s['login']){
-		$User_id=$login_s['id_accounta'];
-	}
-}
-
-	$poisk_ost = mysqli_query($mysql, "SELECT sum FROM `sum` WHERE id_accounta like $User_id"); 
-	while($chels = mysqli_fetch_assoc($poisk_ost)) {
-					$otv = $chels['sum'];
-					$otv2 = $otv;
-					$resultam = $otv2 + $price;
-					$mysql->query("UPDATE sum
-					SET sum = '$resultam' 
-					where id_accounta = $User_id");
-
-					$mysql->close();			
-	}
-
-	if (mb_strlen($price) <= 1 || mb_strlen($price) > 10 ) {?>
+if (!ctype_digit($price) || $price < 0 || mb_strlen($price) < 1 || mb_strlen($price) > 10 ) {?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +24,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 		<div class="container">
 			<div class="menu">
 				<div class="title">
-					Недопустимая длина стоимости!
+					Ошибка стоимости!
 				</div>
 				<div class="item2">
 					 <a href="create_doxoda.php">Выйти</a>
@@ -63,7 +41,7 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 <?php
 		exit();
 	}
-	if (mb_strlen($date_k) == "") {?>
+else if (mb_strlen($date_k) == "") {?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,6 +82,16 @@ while ($login_s = mysqli_fetch_assoc($resulta)) {
 	}
 }
 
+	$poisk_ost = mysqli_query($mysql, "SELECT sum FROM `sum` WHERE id_accounta like $User_id"); 
+	while($chels = mysqli_fetch_assoc($poisk_ost)) {
+					$otv = $chels['sum'];
+					$otv2 = $otv;
+					$resultam = $otv2 + $price;
+					$mysql->query("UPDATE sum
+					SET sum = '$resultam' 
+					where id_accounta = $User_id");
+			
+	}
 	$mysql->query("INSERT INTO `spiski` (`name_kto`,`type_s`,`price`,`date_s`,`name_type_s`,`id_accounta`) VALUES ('$select_kto','$type','$price','$date_k','$select_type','$User_id')");
 
 

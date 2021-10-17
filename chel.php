@@ -29,7 +29,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/chell_m.css">
+	<link rel="stylesheet" href="css/chel_m.css">
 	<title>Цели</title>
 </head>
 <body>
@@ -72,7 +72,7 @@
 				<div class="o">
 					<form action="creat_cheli.php" method="post">
 				<input type="text" name="name_c" id="name_c" placeholder="Наименование">
-				<input type="text" name="price" id="price" placeholder="Стоимость">
+				<input type="text" name="price" id="price" placeholder="Сумма">
 				<button type="submit">Создать</button>
 					</form>
 						</div>

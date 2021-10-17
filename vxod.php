@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/vxod.css">
+<link rel="stylesheet" href="css/vxo.css">
 	<title>Вход</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="p">
-				<a id="top" class="floating-button" href="register.html">Регистрация</a>
+				<a id="top" class="floating-button" href="register.php">Регистрация</a>
 				</div>
 				<button id="left" class="but" type="submit">Войти</button>
 				<div class="pa">

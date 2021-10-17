@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index_e.css">
 	<title>Family</title>
 </head>
 <body>
@@ -50,7 +50,7 @@
 					<h2>Зарегистрируйтесь на Family и мы поможем вам <br> вести учет доходов и расходов семьи.</h2>
 				</div>
 				<div class="button">
-					<a href="register.html">Зарегистрироватся</a>
+					<a href="register.php">Зарегистрироватся</a>
 				</div>
 			</div>
 		</div>
@@ -131,7 +131,7 @@
 			<div class="fot">
 				<h3>Установи свою цель и приближайся <br> к счастью вместе с нами<br> (Твоя Family)</h3>
 				<div class="button2">
-					<a href="register.html">Зарегистрироватся</a>
+					<a href="register.php">Зарегистрироватся</a>
 				</div>
 				<div class="blue"></div>
 			</div>
@@ -318,7 +318,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/indexxx.css">
+	<link rel="stylesheet" href="css/index_a.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -364,7 +364,7 @@
 						<div>
 							<form action="poizk_spiska_s.php" method="post">
 								<select class="sectw" name="mesac">
-    						<option selected value="Месяцы">Месяцы</option>
+    						<option selected value="Месяц">Месяц</option>
     						<option value="1">Январь</option>
     						<option value="2">Февраль</option>
     						<option value="3">Март</option>
@@ -379,11 +379,11 @@
     						<option value="12">Декабрь</option>
    						</select>
 							<select class="sectw" name="select_type_v">
-    						<option selected value="name_kto">Кто</option>
-    						<option value="type_s">Тип</option>
-    						<option value="price">Сколько</option>
+    						<option selected value="name_kto">Члены семьи</option>
+    						<option value="type_s">Классификация</option>
+    						<option value="price">Сумма</option>
     						<option value="date_s">Дата</option>
-    						<option value="name_type_s">Наименование типа</option>
+    						<option value="name_type_s">Источник</option>
    						</select>
 							<input type="name_name" name="name_name" id="name_name" placeholder="Наименование">
 							<button type="submit">Поиск</button>
@@ -394,7 +394,7 @@
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($name_chel = mysqli_fetch_assoc($poisk_n)) {
 						?>
@@ -405,7 +405,7 @@
 						?>
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($type_sp = mysqli_fetch_assoc($poisk_t)) {
 						?>
@@ -416,7 +416,7 @@
 						?>
 					</div>
 					<div class="pol">
-					<h2>Сколько</h2>
+					<h2>Сумма</h2>
 						<?php
 							while($pricr_chel = mysqli_fetch_assoc($poisk_p)) {
 						?>
@@ -439,7 +439,7 @@
 						?>
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($name_type = mysqli_fetch_assoc($poisk_ty)) {
 						?>
@@ -494,14 +494,12 @@
 
 						<button class="blat" name="by" type="submit">Отправить</button>
 						</form>	
-					</div>
-				</div>
+
 			</div>
 		</div>
 		
 	</section>
 </body>
-
 
 </html>
 <?php endif;?>

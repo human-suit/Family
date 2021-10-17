@@ -131,7 +131,11 @@ exit();
 					where id_accounta = $User_id");
 				
 	}
-	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id and name_c like'$name_c'"); 
+	$poisk_ost = mysqli_query($mysql, "SELECT rashod_cheli FROM `cheli` WHERE id_accounta like $User_id and name_c like'$name_c'");
+
+	$mysql->query("INSERT INTO `spiski` (`name_kto`,`type_s`,`price`,`date_s`,`name_type_s`,`id_accounta`) VALUES ('$select_kto','$type','$price','$date_k','$select_type','$User_id')");
+
+
 	while($chels = mysqli_fetch_assoc($poisk_ost)) {
 					$otv = $chels['rashod_cheli'];
 					$otv2 = $otv;

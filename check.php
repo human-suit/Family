@@ -72,7 +72,18 @@
 
 	$mysql = new mysqli('localhost','root','','bd_family');
 	$mysql->query("INSERT INTO `accounts` (`login`,`passwor`) VALUES ('$login','$passwor')");
+	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
+
+	while ($login_s = mysqli_fetch_assoc($resulta)) {
+		if($login == $login_s['login']){
+			$User_id=$login_s['id_accounta'];
+		}
+	}
+	$mysql->query("INSERT INTO `sum` (`id_accounta`,`sum`) VALUES ('$User_id','0')");
+
+
 	$mysql->close();
+
 
 ?>
 	<!DOCTYPE html>

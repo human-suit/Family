@@ -2,7 +2,6 @@
 
 	$select_type_v = filter_var(trim($_POST['select_type_v']),
 	FILTER_SANITIZE_STRING);
-
 	$mesac = filter_var(trim($_POST['mesac']),
 	FILTER_SANITIZE_STRING);
 	$name_name = filter_var(trim($_POST['name_name']),
@@ -15,17 +14,17 @@
 	$resultd = mysqli_query($mysql, "SELECT `date_s` FROM `spiski`");
 	$resulta = mysqli_query($mysql, "SELECT * FROM `accounts`");
 
-	while ($login_s = mysqli_fetch_assoc($resulta)) {
-		if($_COOKIE['user'] == $login_s['login']){
-			$User_id=$login_s['id_accounta'];
-		}
+while ($login_s = mysqli_fetch_assoc($resulta)) {
+	if($_COOKIE['user'] == $login_s['login']){
+		$User_id=$login_s['id_accounta'];
 	}
-	if($mesac != "Месяцы"){
-		$poisk_date = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk_dat = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk_da = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk_d = mysqli_query($mysql, "SELECT date_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
+}
+if($mesac != "Месяц"){
+	$poisk_date = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_dat = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_da = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_d = mysqli_query($mysql, "SELECT date_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND month(date_s) LIKE '$mesac' ORDER BY `spiski`.`id_spiska` DESC");
 						
 	?>
 <!DOCTYPE html>
@@ -33,7 +32,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index_p.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -76,7 +75,7 @@
 			<div class="list">
 				<div class="grey">
 					<div class="main_poizk">
-						<div>
+						<div class="tr">
 							<form action="index.php">
 							<button type="submit">Обновить</button>
 							</form>
@@ -86,7 +85,7 @@
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_date)) {
 						?>
@@ -98,7 +97,7 @@
 
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_dat)) {
 						?>
@@ -110,7 +109,7 @@
 
 					</div>
 					<div class="pol">
-						<h2>Сколько</h2>
+						<h2>Сумма</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_da)) {
 						?>
@@ -134,7 +133,7 @@
 
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk)) {
 						?>
@@ -158,14 +157,14 @@
 <?php
 exit();
 	}
-	?>
-	<?php
-	if($select_type_v == "type_s"){
-		$poisk_date = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk_dat = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk_da = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk_d = mysqli_query($mysql, "SELECT date_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
-		$poisk = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
+?>
+<?php
+if($select_type_v == "type_s"){
+	$poisk_date = mysqli_query($mysql, "SELECT name_kto FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_dat = mysqli_query($mysql, "SELECT type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_da = mysqli_query($mysql, "SELECT price FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk_d = mysqli_query($mysql, "SELECT date_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
+	$poisk = mysqli_query($mysql, "SELECT name_type_s FROM `spiski` WHERE `id_accounta` LIKE $User_id AND type_s LIKE '$name_name' ORDER BY `spiski`.`id_spiska` DESC");
 						
 	?>
 <!DOCTYPE html>
@@ -173,7 +172,7 @@ exit();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index_p.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -216,7 +215,7 @@ exit();
 			<div class="list">
 				<div class="grey">
 					<div class="main_poizk">
-						<div>
+						<div class="tr">
 							<form action="index.php">
 							<button type="submit">Обновить</button>
 							</form>
@@ -226,7 +225,7 @@ exit();
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_date)) {
 						?>
@@ -238,7 +237,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_dat)) {
 						?>
@@ -250,7 +249,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Сколько</h2>
+						<h2>Сумма</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_da)) {
 						?>
@@ -274,7 +273,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk)) {
 						?>
@@ -311,7 +310,7 @@ exit();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index_p.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -354,7 +353,7 @@ exit();
 			<div class="list">
 				<div class="grey">
 					<div class="main_poizk">
-						<div>
+						<div class="tr">
 							<form action="index.php">
 							<button type="submit">Обновить</button>
 							</form>
@@ -364,7 +363,7 @@ exit();
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_date)) {
 						?>
@@ -376,7 +375,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_dat)) {
 						?>
@@ -388,7 +387,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Сколько</h2>
+						<h2>Сумма</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_da)) {
 						?>
@@ -412,7 +411,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk)) {
 						?>
@@ -450,7 +449,7 @@ exit();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/indexx.css">
+	<link rel="stylesheet" href="css/index_p.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -493,7 +492,7 @@ exit();
 			<div class="list">
 				<div class="grey">
 					<div class="main_poizk">
-						<div>
+						<div class="tr">
 							<form action="index.php">
 							<button type="submit">Обновить</button>
 							</form>
@@ -503,7 +502,7 @@ exit();
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_date)) {
 						?>
@@ -515,7 +514,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_dat)) {
 						?>
@@ -527,7 +526,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Сколько</h2>
+						<h2>Сумма</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_da)) {
 						?>
@@ -551,7 +550,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk)) {
 						?>
@@ -588,7 +587,7 @@ exit();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index_p.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -631,7 +630,7 @@ exit();
 			<div class="list">
 				<div class="grey">
 					<div class="main_poizk">
-						<div>
+						<div class="tr">
 							<form action="index.php">
 							<button type="submit">Обновить</button>
 							</form>
@@ -641,7 +640,7 @@ exit();
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_date)) {
 						?>
@@ -653,7 +652,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_dat)) {
 						?>
@@ -665,7 +664,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Сколько</h2>
+						<h2>Сумма</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_da)) {
 						?>
@@ -689,7 +688,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk)) {
 						?>
@@ -726,7 +725,7 @@ exit();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index_p.css">
 	<title>Family</title>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -769,7 +768,7 @@ exit();
 			<div class="list">
 				<div class="grey">
 					<div class="main_poizk">
-						<div>
+						<div class="tr">
 							<form action="index.php">
 							<button type="submit">Обновить</button>
 							</form>
@@ -779,7 +778,7 @@ exit();
 				<div>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_date)) {
 						?>
@@ -791,7 +790,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Тип</h2>
+						<h2>Классификация</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_dat)) {
 						?>
@@ -803,7 +802,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Сколько</h2>
+						<h2>Сумма</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk_da)) {
 						?>
@@ -827,7 +826,7 @@ exit();
 
 					</div>
 					<div class="pol">
-						<h2>Наименование типа</h2>
+						<h2>Источник</h2>
 						<?php
 							while($chels = mysqli_fetch_assoc($poisk)) {
 						?>

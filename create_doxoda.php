@@ -26,7 +26,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/doxod_xs.css">
+	<link rel="stylesheet" href="css/doxod_s.css">
 	<title>Доходы</title>
 </head>
 <body>
@@ -74,7 +74,7 @@
     						<option value="Сын">Сын</option>
     						<option value="Дочь">Дочь</option>
    						</select>
-				<input type="text" name="price" id="price" placeholder="Стоимость">
+				<input type="text" name="price" id="price" placeholder="Сумма">
 				<input type="date" name="date_k" id="date_k" placeholder="Дата">
 				<select class="sectw" name="select_type">
     						<option selected value="Работа">Работа</option>
@@ -82,13 +82,38 @@
     						<option value="Премия">Премия</option>
     						<option value="Подработка">Подработка</option>
     						<option value="Пособие">Пособие</option>
-    						<option value="Степендия">Степендия</option>
+    						<option value="Степендия">Стипендия</option>
     						<option value="Доп-доход">Доп-доход</option>
    				</select>
 				<button type="submit">Создать</button>
 					</form>
-				<form action="php/delete.php" method="post">
-				<button class="delete" type="submit">Удалить</button>
+						</div>
+					<div>
+						</div>
+				</div>
+			</div>
+			<div class="grey">
+				<div class="fon2"> 
+				<div class="o">
+					<form action="delete_doxod.php" method="post">
+					<select class="sectw" name="select_kto">
+    						<option selected value="Папа">Папа</option>
+    						<option value="Мама">Мама</option>
+    						<option value="Сын">Сын</option>
+    						<option value="Дочь">Дочь</option>
+   						</select>
+				<input type="text" name="price" id="price" placeholder="Сумма">
+				<input type="date" name="date_k" id="date_k" placeholder="Дата">
+				<select class="sectw" name="select_type">
+    						<option selected value="Работа">Работа</option>
+    						<option value="Акции">Акции</option>
+    						<option value="Премия">Премия</option>
+    						<option value="Подработка">Подработка</option>
+    						<option value="Пособие">Пособие</option>
+    						<option value="Степендия">Стипендия</option>
+    						<option value="Доп-доход">Доп-доход</option>
+   				</select>
+				<button type="submit">Удалить</button>
 					</form>
 						</div>
 					<div>
@@ -99,7 +124,7 @@
 			<h1>Доходы</h1>
 				<div class="shcaf">
 					<div class="pol">
-						<h2>Кто</h2>
+						<h2>Члены семьи</h2>
 						<?php
 							while($name_chel = mysqli_fetch_assoc($poisk_n)) {
 						?>
@@ -110,7 +135,7 @@
 						?>
 					</div>
 					<div class="pol">
-					<h3>Тип</h3>
+					<h3>Классификация</h3>
 						<?php
 							while($name_type = mysqli_fetch_assoc($poisk_t)) {
 						?>
@@ -121,11 +146,11 @@
 						?>
 					</div>
 					<div class="pol">
-						<h3>Сколько</h3>
+						<h2>Сумма</h2>
 						<?php
 							while($pricr_chel = mysqli_fetch_assoc($poisk_p)) {
 						?>
-							<h3><?php echo $pricr_chel['price']; ?> руб</h3>
+							<h2><?php echo $pricr_chel['price']; ?> руб</h2>
 							<?php
 
 							}
@@ -145,7 +170,7 @@
 
 					</div>
 					<div class="pol">
-						<h3>Имя типа</h3>
+						<h2>Источник дохода</h2>
 						<?php
 							while($name_type_t = mysqli_fetch_assoc($poisk_tn)) {
 						?>

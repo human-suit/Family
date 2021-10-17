@@ -38,7 +38,7 @@ if (mb_strlen($name_c) <= 1 || mb_strlen($name_c) > 40 ) {?>
 </html>
 <?php
 		exit();
-	}	if (mb_strlen($price) <= 1 || mb_strlen($price) > 10 ) {?>
+	}	if (!ctype_digit($price) || mb_strlen($price) <= 1 || $price < 0 || mb_strlen($price) > 10 ) {?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

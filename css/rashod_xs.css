@@ -38,7 +38,7 @@ a:hover{
 }
 .shcaf{
 	overflow: auto;
-	padding: 0 50px 50px 150px;
+	padding: 0 50px 50px 50px;
 	display: flex;
 }
 .reg{
@@ -61,9 +61,18 @@ a:hover{
 .delete{
 	margin-top: 8px;
 }
+.pol{
+	padding-left: 10px;
+	text-align: center;
+	border-left: 1px solid black;
+	border-right: 0,5px solid black;
+}
+.pol:last-child{
+	border-right: 1px solid black;
+}
 .pol h2{
 	height: 20px;
-	width: 100px;
+	width: 150px;
 	margin-right: 20px; 
 	font-size: 19px;
 }
@@ -71,12 +80,12 @@ a:hover{
 	margin:16px 30px 0 0px;
 }
 .fon{
-	margin-left: 200px;
+	margin-left: 80px;
 	overflow: auto;
 	display: block;
 	background: #FAFAFA;
 	height: 670px;
-	width: 870px;
+	width: 1030px;
 }
 .grey{
 	background: #EEECEC;
@@ -86,10 +95,15 @@ a:hover{
 	height: 20px;
 }
 .fon2{
+	margin-left: 100px;
 	margin-bottom: 40px;
 }	
 .ind{
 	margin-left: 160px;
+}
+select{
+	border: 1px solid grey;
+	background: white;
 }
 .fon2 button{
 	cursor: pointer;
